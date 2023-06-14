@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Personal Portfolio - Shuvadipta Das</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/37865124d2.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portofolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-times" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <p>Software Engineer</p>
+                <h1>Hi, I'm <span>Shuvadipta</span><br>Das from India</h1>
+            </div>
+        </div>
+    </div>
+    <!-- --------------about-------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p><br>I am a coding enthusiast and have a passion for computer science.<br><br>Currently learning to be a software engineer alongside gathering knowledge on various technologies.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>C Programming</span><br>Programming For Problem Solving</li>
+                            <li><span>Teamwork</span><br>Ability to perform well in a team</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span> </span><br> </li>
+                            <li><span> </span><br> </li>
+                            <li><span> </span><br> </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2022-Current</span><br>B.Tech In IT from Netaji Subhash Engineering College</li>
+                            <li><span>2022</span><br>Class 12 from Garden High School</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- --------------services-------- -->
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fas fa-code"></i>
+                    <h2>Web Development</h2>
+                    <p>Learning HTML,CSS & Js and planning to go to Backend soon! 
+                    </p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-c"></i>
+                    <h2>C Programming</h2>
+                    <p>Highly knowledgable in C Programming. I have done many programs in my college. Find about it below! 
+                    </p>
+                    <a href="https://github.com/5h0ov/C-Programming-Practical-Assignments-NSEC/tree/main" target="_blank">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- -----------portfolio---------- -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work1.png">
+                <div class="layer">
+                    <h3>Perfume Product Card</h3>
+                    <p>This is a Card for a sample Perfume Product made using HTML & CSS</p>
+                    <a href="https://github.com/5h0ov/GDSC-NSEC-CSS-Assignment-I" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work2.png">
+                <div class="layer">
+                    <h3>Coffee Machine Animation</h3>
+                    <p>This is an Animation of a Coffee Machine made using HTML & CSS</p>
+                    <a href="https://github.com/5h0ov/Coffee-Machine-Animation" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work3.png">
+                <div class="layer">
+                    <h3>Google Drive Clone</h3>
+                    <p>This is a basic clone of Google Drive Home</p>
+                    <a href="https://d3e7nl.csb.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/5h0ov?tab=repositories" target="_blank", class="btn">See More</a>
+    </div>
+</div>
+<!-- -------------contact-------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-solid fa-envelope"></i>shuvadiptadas8820@gmail.com</p>
+                <p><i class="fa-sharp fa-solid fa-square-phone"></i>0123456789</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/shuvadipta-das-915b28216/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/5h0ov" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.youtube.com/@5h0ov" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/its_shuvadipta/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com/5h0ovie" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <a href="images/CV-Shuvadipta_Das.pdf" download class="btn btn2" >Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="text" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Shuvadipta Das.</p>
+    </div>
+</div>
+<a href="#" onclick="topFunction()" id="myBtn" class="myBtn hidden"><i class="fa-solid fa-upload"></i></a>
+
+    <script src="script.js"></script>
+    <!-- -------contact form begin---------- -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzBftw8TNMCHZKDsPIWo20ii9htcYWVCQ_nRnsAUqgpOxDyja5kRR2MxRi5mj6Br0aoGQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg=document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message Sent Successfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },4000) //4000 is miliseconds
+                form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+      <!-- -------------contact form end-------------- -->
+  </body>
+</html>

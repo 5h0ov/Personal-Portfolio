@@ -421,5 +421,6 @@ nav .fa-solid{
 
 #myBtn:hover {
   background-color: #555;
+  box-shadow: 0 0 10px #555;
   transform: translateY(-5px);
 }

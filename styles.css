@@ -407,7 +407,8 @@ nav .fa-solid{
   position: fixed;
   bottom: 20px;
   right: 30px;
-  z-index: 99;
+  z-index: 100000;
+  box-shadow: 0 0 10px #E0BE96;
   text-decoration: none;
   font-size: 18px;
   background: #E0BE96;

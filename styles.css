@@ -403,7 +403,7 @@ nav .fa-solid{
 }
 
 #myBtn{
-  display: none;
+  display: grid;
   position: fixed;
   bottom: 20px;
   right: 30px;

@@ -23,11 +23,16 @@ body{
     padding: 10px 10%;
 }
 nav{
+    top: 0px;
+    width: 85%;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: #080808;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    z-index: 1;
 }
 .logo{
     width:275px;

@@ -416,11 +416,13 @@ nav .fa-solid{
   z-index: 100000;
   box-shadow: 0 0 10px #E0BE96;
   text-decoration: none;
-  font-size: 18px;
+  text-align: center;
+  font-size: 40px;
   background: #E0BE96;
   color: #262626;
   cursor: pointer;
-  padding: 15px;
+  width: 55px;
+  height: 55px;
   border-radius: 4px;
   transition: background 0.5s, transform 0.5s;
 }

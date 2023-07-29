@@ -30,7 +30,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: transparent;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50));
+    /* background-color: transparent; */
     backdrop-filter: blur(8px);
     z-index: 1;
 }

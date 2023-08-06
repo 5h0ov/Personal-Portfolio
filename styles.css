@@ -448,7 +448,7 @@ nav .fa-solid{
   cursor: pointer;
   width: 55px;
   height: 55px;
-  border-radius: 4px;
+  border-radius: 50%;
   transition: background 0.5s, transform 0.5s;
 }
 

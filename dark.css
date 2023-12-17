@@ -1,0 +1,86 @@
+/* CSS for Light-Dark Theme SWITCH */
+
+  .theme-toggle {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    margin: 0 5px;
+  }
+  
+  .invert-color {
+    filter: invert(100%);
+  }
+  
+  .theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  
+  .slider {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+    box-shadow: 0 0 20px #E0BE96;
+  }
+  
+   .slider .dark-theme{
+    background-color: #000;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background : url('https://img.icons8.com/fluency/16/000000/smiling-sun.png');
+    border-radius: 50%;
+    transition: transform 0.4s;
+    /* box-shadow: 0 0 20px #fb16e4; */
+  }
+  
+  .dark-theme .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background : url('https://img.icons8.com/external-flatart-icons-flat-flatarticons/16/external-moon-nature-flatart-icons-flat-flatarticons-4.png');
+    border-radius: 50%;
+    transition: transform 0.4s;
+    /* box-shadow: 0 0 20px #fb16e4; */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+
+  .dark-theme {
+    filter: invert(1) hue-rotate(180deg);
+    color: #000000;
+  }
+  
+  .dark-theme .footer-content .socials li a {
+    color: #000000;
+  }
+
+  .header-text .dark-theme h1{
+    color: #000000;
+  }
+  .header-text .dark-theme p{
+    color: #000000;
+  }
+  .dark-theme i{
+    color: #fff;
+  }

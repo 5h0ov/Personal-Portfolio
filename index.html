@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Personal Portfolio - Shuvadipta Das</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark.css">
     <script src="https://kit.fontawesome.com/37865124d2.js" crossorigin="anonymous"></script>
   </head>
+
+  <label class="theme-toggle" for="themeToggle" style="position: fixed; top: 28px; z-index: 100; margin-left: 30px">
+
+    <input type="checkbox" id="themeToggle" onclick="toggleTheme()" checked aria-label="Switch theme mode">
+    <span class="slider"></span>
+  </label>
+
   <body>
     <div id="header">
         <div class="container">

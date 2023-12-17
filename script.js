@@ -46,3 +46,40 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+
+// Code for enabling Light-Dark THEME
+function toggleTheme() {
+  var slider = document.getElementById("themeToggle");
+  if (slider.checked) {
+    disableDarkTheme();
+  } else {
+    enableDarkTheme();
+  }
+}
+
+function enableDarkTheme() {
+  var elements = document.getElementsByTagName('*');
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    if (
+      element.tagName !== 'BODY' &&
+      !element.classList.contains('ignore-dark-theme')
+    ) {
+      element.classList.add('dark-theme');
+    }
+  }
+
+}
+
+
+function disableDarkTheme() {
+  var elements = document.getElementsByTagName('*');
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    if (
+      element.tagName !== 'BODY') {
+      element.classList.remove('dark-theme');
+    }
+  }
+}

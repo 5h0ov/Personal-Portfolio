@@ -2,11 +2,11 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import Button from './ui/Button';
-import { Mail, Phone, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
+import { Mail, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import { useInView } from '@/lib/hooks/useInView';
 import socialLinks from '@/lib/data/social-links.json';
 import type { SocialLink } from '@/lib/types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardTitle } from '@/components/ui/Card';
 
 const iconMap = {
   Github,

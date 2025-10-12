@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { X, Github, ExternalLink, ChevronLeft, ChevronRight, Grid3X3, Monitor } from 'lucide-react';
 import projectsData from '@/lib/data/projects.json';
 import { useInView } from '@/lib/hooks/useInView';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/Card';
 
 const Projects = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -131,8 +131,6 @@ const Projects = () => {
                 {projectsData.map((project, index) => {
                   const distance = (index - currentIndex + projectsData.length) % projectsData.length;
                   const isActive = distance === 0;
-                  const isNext = distance === 1;
-                  const isPrev = distance === projectsData.length - 1;
 
                   return (
                     <motion.div

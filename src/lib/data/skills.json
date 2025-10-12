@@ -55,6 +55,11 @@
     "description": "Distributed version control system"
   },
   {
+    "name": "n8n",
+    "image": "./skills/n8n.svg",
+    "description": "Workflow automation platform"
+  },
+  {
     "name": "Docker",
     "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
     "description": "Containerization platform"

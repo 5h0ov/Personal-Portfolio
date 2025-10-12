@@ -1,0 +1,39 @@
+[
+  {
+    "title": "SnowSEO 2.0",
+    "category": "Web App",
+    "description": "Your Last SEO Platform - All-in-one SEO platform that streamlines optimization, boosts rankings, and drives organic growth for your website.",
+    "tech": ["Next.js", "tRPC", "Typescript", "TailwindCSS", "Zustand", "Redis", "Stripe", "PostgreSQL", "Docker"],
+    "imageUrl": "https://res.cloudinary.com/dzow5xpbx/image/upload/v1760203077/Screenshot_2025-10-11_211733_lzuckg.png",
+    "githubUrl": "https://snowseo.com",
+    "liveUrl": "https://snowseo.com"
+  },
+  {
+    "title": "TaskFlow",
+    "category": "Web App",
+    "description": "A Personal Task Management System made using Next.js 15, PostgreSQL, Drizzle ORM, Zustand, Tanstack ReactQuery, Tailwind and is mobile responsive.",
+    "tech": ["Next.js", "Typescript", "Zustand", "TailwindCSS", "PostgreSQL"],
+    "imageUrl": "https://res.cloudinary.com/dzow5xpbx/image/upload/v1760203079/Screenshot_2025-10-11_211847_z1mykz.png",
+    "githubUrl": "https://github.com/5h0ov/Task-Management-Web-App",
+    "liveUrl": "https://task-management-web-app-2aua.vercel.app"
+  },
+  {
+    "title": "Interview.io",
+    "category": "Web App",
+    "description": "AI-Powered Interview Preparation Platform for Job Interviews. This Project got #1 out of 145 Projects in HackOdisha 2024.",
+    "longDescription": "The project \"AI-Powered Real-Time Interview Coach\" is an innovative virtual platform designed to help users improve their interview skills through a range of interactive and AI-driven features.",
+    "tech": ["React", "Node.js", "Javascript", "WebSocket", "MongoDB", "Cloudinary", "WebRTC", "Gemini"],
+    "imageUrl": "https://res.cloudinary.com/dzow5xpbx/image/upload/v1760203077/Screenshot_2025-10-11_212318_ke2ou1.png",
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://interview-io-six.vercel.app"
+  },
+  {
+    "title": "ShoobEstate",
+    "category": "Web App",
+    "description": "A full-stack (MERN) real estate platform that enables users to list, browse, and interact with property listings in real-time. Features modern UI, real-time chat, and comprehensive property management.",
+    "tech": ["React", "Node.js", "Javascript", "WebSocket", "MongoDB", "Cloudinary"],
+    "imageUrl": "https://res.cloudinary.com/dzow5xpbx/image/upload/v1760203084/Screenshot_2025-10-11_212224_dqvypx.png",
+    "githubUrl": "https://github.com",
+    "liveUrl": "https://shoob-estate-ocou.vercel.app"
+  }
+]

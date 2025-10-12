@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Next.js",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    "description": "Modern React development with Next.js framework"
+  },
+  {
+    "name": "TypeScript",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+    "description": "Type-safe JavaScript development"
+  },
+  {
+    "name": "React",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    "description": "JavaScript library for building user interfaces"
+  },
+  {
+    "name": "JavaScript",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    "description": "JavaScript programming language"
+  },
+  {
+    "name": "Python",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    "description": "Python programming language"
+  },
+  {
+    "name": "C",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg",
+    "description": "C programming language"
+  },
+  {
+    "name": "Tailwind CSS",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    "description": "Utility-first CSS framework"
+  },
+  {
+    "name": "tRPC",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trpc/trpc-original.svg",
+    "description": "RPC framework for TypeScript"
+  },
+  {
+    "name": "Node.js",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+    "description": "JavaScript runtime environment"
+  },
+  {
+    "name": "PostgreSQL",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+    "description": "Advanced open source database"
+  },
+  {
+    "name": "Git",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    "description": "Distributed version control system"
+  },
+  {
+    "name": "Docker",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+    "description": "Containerization platform"
+  },
+  {
+    "name": "Redis",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+    "description": "In-memory data structure store"
+  },
+  {
+    "name": "MongoDB",
+    "image": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+    "description": "NoSQL database"
+  }
+]

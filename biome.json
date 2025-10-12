@@ -1,0 +1,10 @@
+{
+  "extends": ["ultracite"],
+  "linter": {
+    "rules": {
+      "style": {
+        "useNamingConvention": "off"
+      }
+    }
+  }
+}

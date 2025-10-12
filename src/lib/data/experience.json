@@ -1,0 +1,20 @@
+[
+  {
+    "date": "Jun 2025 - Present",
+    "title": "Full Stack Developer Intern",
+    "company": "Kapybara",
+    "description": "Contributed to the development of a B2B/SaaS Product - [SnowSEO 2.0](https://snowseo.com) with the founder with managed to become [#2 Product of the Day](https://www.producthunt.com/products/snowseo). Wrote optimized and scalable production-ready code with CI/CD Pipelines. Main Tech Stack: Nextjs, Typescript, tRPC, TailwindCSS, Docker, Redis."
+  },
+  {
+    "date": "Dec 2024 - Jan 2025",
+    "title": "SDE Intern",
+    "company": "Wanderingo",
+    "description": "Worked mainly in the frontend and rebuilt the whole theme of the website according to the Figma from the Design Team to make it more user-friendly and lay the foundations for expanding the features."
+  },
+  {
+    "date": "Feb 2023 - Present",
+    "title": "Research Student Assistant",
+    "company": "Netaji Subhash Engineering College",
+    "description": "Researched about Optimization Algorithms in ML, created a new algorithm and published a paper on it to a Springer Nature Journal."
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "label": "GitHub",
+    "href": "https://github.com/5h0ov",
+    "icon": "Github",
+    "shownInPill": true
+  },
+  {
+    "label": "Twitter",
+    "href": "https://x.com/5h0ovie",
+    "icon": "Twitter",
+    "shownInPill": true
+  },
+  {
+    "label": "LinkedIn",
+    "href": "https://www.linkedin.com/in/shuvadipta-das-915b28216/",
+    "icon": "Linkedin",
+    "shownInPill": false
+  },
+  {
+    "label": "Instagram",
+    "href": "https://www.instagram.com/its_shuvadipta/",
+    "icon": "Instagram",
+    "shownInPill": false
+  }
+]

@@ -36,7 +36,7 @@ export default function Home() {
     <DotBackground className="min-h-screen">
       <BackgroundAnimation />
       <PillboxNav />
-      <main className="flex min-h-screen flex-col items-center justify-between relative z-10 overflow-hidden">
+      <main className="flex min-h-screen flex-col items-center justify-between relative overflow-hidden">
         <Hero />
         <Skills />
         <Experience />

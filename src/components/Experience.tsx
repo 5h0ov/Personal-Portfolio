@@ -14,12 +14,12 @@ const Experience = () => {
         <div ref={ref} className="relative">
 
           {/* the main line */}
-          <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-primary"></div>
+          <div className="absolute left-4 md:left-1/2 top-0 h-full w-1 md:-translate-x-1/2 bg-primary"></div>
 
           {experienceData.map((exp, index) => (
             <motion.div
               key={index}
-              className={`relative mb-12 flex w-full items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'
+              className={`relative mb-12 flex w-full items-center ${index % 2 === 0 ? 'justify-start' : 'md:justify-end'
                 }`}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -30,7 +30,7 @@ const Experience = () => {
               }}
             >
               <div
-                className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
+                className={`w-full md:w-1/2 pl-12 text-left md:pl-0 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'
                   }`}
               >
                 <p className="mb-1 text-sm font-semibold text-accent">{exp.date}</p>
@@ -42,7 +42,7 @@ const Experience = () => {
               </div>
 
               {/* a dot on the timeline */}
-              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute left-4 md:left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent shadow-lg">
                   <Briefcase className="text-primary-foreground" size={24} />
                 </div>

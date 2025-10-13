@@ -6,6 +6,7 @@ import { motion } from 'motion/react';
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState('default');
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // throttle mouse move events to reduce GPU usage
   const throttledMouseMove = useCallback(
@@ -25,25 +26,30 @@ const CustomCursor = () => {
   );
 
   useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouchDevice();
+
     const handleMouseMove = throttledMouseMove;
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
+
       // check for interactive elements
       //  TODO: add more
-      if (target.tagName === 'BUTTON' || 
-          target.tagName === 'A' || 
-          target.onclick || 
-          target.closest('button') || 
-          target.closest('a') ||
-          target.closest('[role="button"]') ||
-          target.style.cursor === 'pointer' ||
-          target.classList.contains('cursor-pointer')) {
+      if (target.tagName === 'BUTTON' ||
+        target.tagName === 'A' ||
+        target.onclick ||
+        target.closest('button') ||
+        target.closest('a') ||
+        target.closest('[role="button"]') ||
+        target.style.cursor === 'pointer' ||
+        target.classList.contains('cursor-pointer')) {
         setCursorVariant('pointer');
-      } else if (target.tagName === 'INPUT' || 
-                 target.tagName === 'TEXTAREA' || 
-                 target.contentEditable === 'true') {
+      } else if (target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        target.contentEditable === 'true') {
         setCursorVariant('text');
       } else {
         setCursorVariant('default');
@@ -85,6 +91,10 @@ const CustomCursor = () => {
       backgroundColor: 'transparent',
     },
   };
+
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <motion.div 

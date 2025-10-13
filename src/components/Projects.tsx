@@ -13,9 +13,23 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [viewMode, setViewMode] = useState<'slideshow' | 'grid'>('slideshow');
+  const [isMobile, setIsMobile] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const selectedProject = selectedIndex !== null ? projectsData[selectedIndex] : null;
   const { ref, isInView } = useInView({ threshold: 0.1 });
+
+  // detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth < 768) {
+        setViewMode('grid');
+      }
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // auto-rotate carousel only when isAutoScrolling is true AND in view
   useEffect(() => {
@@ -69,11 +83,11 @@ const Projects = () => {
   return (
     <section ref={ref} id="projects" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className={`flex items-center justify-between ${viewMode === 'slideshow' ? '' : 'mb-16'}`}>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8 md:mb-16">
           <h2 className="text-4xl font-bold text-foreground">My Creations</h2>
 
           {/* view toggle buttons */}
-          <div className="flex items-center gap-2 p-1 rounded-full bg-card/50 backdrop-blur-sm border border-border/20">
+          <div className="hidden md:flex items-center gap-2 p-1 rounded-full bg-card/50 backdrop-blur-sm border border-border/20">
             <motion.button
               onClick={() => setViewMode('slideshow')}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${viewMode === 'slideshow'
@@ -103,7 +117,7 @@ const Projects = () => {
 
         {/* conditional rendering based on view mode */}
         <AnimatePresence mode="wait">
-          {viewMode === 'slideshow' ? (
+          {viewMode === 'slideshow' && !isMobile ? (
             <motion.div
               key="slideshow"
               initial={{ opacity: 0, y: 20 }}
@@ -205,7 +219,7 @@ const Projects = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
               {projectsData.map((project, index) => (
                 <motion.div
@@ -217,7 +231,7 @@ const Projects = () => {
                   onClick={() => setSelectedIndex(index)}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Card className="relative w-96 h-96 overflow-hidden p-0 border-border/20 group-hover:shadow-xl transition-shadow duration-300">
+                  <Card className="relative w-full aspect-square overflow-hidden p-0 border-border/20 group-hover:shadow-xl transition-shadow duration-300 sm:w-80 md:w-96 lg:w-[420px] mx-auto">
                     <div className="relative w-full h-full">
                       <Image
                         src={project.imageUrl}
@@ -225,8 +239,9 @@ const Projects = () => {
                         fill
                         className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                      <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white bg-transparent border-0">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:from-black/90 md:via-black/20" />
+
+                      <CardContent className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white bg-transparent border-0 hidden md:block">
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                         <p className="text-sm opacity-90 mb-2">{project.category}</p>
                         <p className="text-sm opacity-75 line-clamp-2 mb-3">{project.description}</p>
@@ -258,7 +273,7 @@ const Projects = () => {
         <AnimatePresence>
           {selectedIndex !== null && selectedProject && (
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -266,14 +281,14 @@ const Projects = () => {
             >
               {/* backdrop without blur to avoid interfering with pillbox */}
               <motion.div
-                className="absolute inset-0 bg-black/70"
+                className="absolute inset-0 bg-black/70 z-[99998]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               />
 
               <motion.div
-                className="relative w-full max-w-6xl z-50 max-h-[90vh] flex flex-col"
+                className="relative w-full max-w-6xl z-[99999] max-h-[90vh] flex flex-col"
                 initial={{ scale: 0.8, opacity: 0, y: 50 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -369,7 +384,7 @@ const Projects = () => {
                       </div>
 
                       <motion.div
-                        className="flex flex-col sm:flex-row gap-4 mt-8"
+                        className="flex flex-row gap-4 mt-8"
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.7 }}

@@ -115,7 +115,7 @@ const PillboxNav = () => {
   };
 
   const getContainerStyles = () => {
-    const baseStyles = "pointer-events-none fixed flex z-30 transition-all duration-300";
+    const baseStyles = "pointer-events-none fixed flex z-20 transition-all duration-300";
     switch (position) {
       case 'bottom':
         return `${baseStyles} inset-x-0 justify-center`;

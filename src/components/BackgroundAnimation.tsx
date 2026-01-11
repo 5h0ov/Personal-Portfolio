@@ -7,10 +7,10 @@ const BackgroundAnimation = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
   // memoize grid lines to avoid recalculation
   const gridLines = useMemo(() => {
-    return Array.from({ length: 25 }, (_, i) => ({
+    return Array.from({ length: 15 }, (_, i) => ({
       id: i,
-      x: (i*4) % 100, // 4% spacing between lines
-      y: (i*4) % 100,
+      x: (i*7) % 100, // increased spacing between lines
+      y: (i*7) % 100,
       delay: Math.random() * 3,
     }));
   }, []);
@@ -162,4 +162,4 @@ const BackgroundAnimation = () => {
   );
 };
 
-export default BackgroundAnimation; 
+export default BackgroundAnimation;

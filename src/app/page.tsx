@@ -34,7 +34,7 @@ export default function Home() {
   // memoize the main content to prevent unnecessary re-renders
   const mainContent = useMemo(() => (
     <DotBackground className="min-h-screen">
-      <BackgroundAnimation />
+      {/* <BackgroundAnimation /> */}
       <PillboxNav />
       <main className="flex min-h-screen flex-col items-center justify-between relative overflow-hidden">
         <Hero />

@@ -13,7 +13,9 @@ export function DotBackground({ children, className }: GridBackgroundProps) {
 
   useEffect(() => {
     // disable mouse tracking on mobile/tablet to save resources
-    if (typeof window !== 'undefined' && window.matchMedia("(max-width: 768px)").matches) return;
+    if (typeof window === 'undefined') return;
+
+    if (window.matchMedia("(max-width: 768px)").matches) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);

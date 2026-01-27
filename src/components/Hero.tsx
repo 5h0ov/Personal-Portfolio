@@ -10,6 +10,7 @@ import {
   RocketIcon,
 } from '@radix-ui/react-icons';
 import GradientText from './GradientText';
+import socialLinks from '@/lib/data/social-links.json';
 
 const Hero = () => {
 return (
@@ -76,22 +77,34 @@ return (
         />
 
         {/* Socials - LinkedIn */}
-        <BentoGridItem
-          className="md:col-span-3 bg-[#0077b5] border-transparent cursor-pointer transition-colors hover:bg-[#00669c]"
-          title={<span className="text-white font-heading font-bold">LinkedIn</span>}
-          description={<span className="text-blue-50 text-xs">Connect professionally.</span>}
-          header={<LinkedInLogoIcon className="h-8 w-8 text-white mb-auto" />}
-           /* Add link logic here later */
-        />
+        <a
+          href={socialLinks.find((link) => link.label === 'LinkedIn')?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:col-span-3"
+        >
+          <BentoGridItem
+            className="h-full bg-[#0077b5] border-transparent cursor-pointer transition-colors hover:bg-[#00669c]"
+            title={<span className="text-white font-heading font-bold">LinkedIn</span>}
+            description={<span className="text-blue-50 text-xs">Connect professionally.</span>}
+            header={<LinkedInLogoIcon className="h-8 w-8 text-white mb-auto" />}
+          />
+        </a>
 
         {/* Socials - GitHub */}
-        <BentoGridItem
-          className="md:col-span-3 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700"
-          title={<span className="text-neutral-900 dark:text-neutral-200">GitHub</span>}
-          description={<span className="text-neutral-600 dark:text-neutral-400">Code.</span>}
-          header={<GitHubLogoIcon className="h-8 w-8 text-neutral-900 dark:text-neutral-200 mb-auto" />}
-           /* Add link logic here later */
-        />
+        <a
+          href={socialLinks.find((link) => link.label === 'GitHub')?.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:col-span-3"
+        >
+          <BentoGridItem
+            className="h-full bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700"
+            title={<span className="text-neutral-900 dark:text-neutral-200">GitHub</span>}
+            description={<span className="text-neutral-600 dark:text-neutral-400">Code.</span>}
+            header={<GitHubLogoIcon className="h-8 w-8 text-neutral-900 dark:text-neutral-200 mb-auto" />}
+          />
+        </a>
 
           {/* Contact Tile */}
           <BentoGridItem

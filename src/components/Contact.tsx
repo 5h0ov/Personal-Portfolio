@@ -46,6 +46,7 @@ const Contact = () => {
       formDataToSend.append('Name', formData.Name);
       formDataToSend.append('Email', formData.Email);
       formDataToSend.append('Message', formData.Message);
+      formDataToSend.append('Date', new Date().toLocaleString());
 
       const response = await fetch(scriptURL!, {
         method: 'POST',

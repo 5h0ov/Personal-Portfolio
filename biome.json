@@ -1,5 +1,5 @@
 {
-  "extends": ["ultracite"],
+  "extends": ["ultracite/core"],
   "linter": {
     "rules": {
       "style": {

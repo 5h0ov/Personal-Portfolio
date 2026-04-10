@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface UseInViewOptions {
   threshold?: number;
@@ -7,8 +7,10 @@ interface UseInViewOptions {
 }
 
 // this is a custom hook to check if an element is in view
-export const useInView = <T extends HTMLElement = HTMLDivElement>(options: UseInViewOptions = {}) => {
-  const { threshold = 0.1, rootMargin = '0px', triggerOnce = false } = options;
+export const useInView = <T extends HTMLElement = HTMLDivElement>(
+  options: UseInViewOptions = {}
+) => {
+  const { threshold = 0.1, rootMargin = "0px", triggerOnce = false } = options;
   const [isInView, setIsInView] = useState(false);
   const [hasBeenInView, setHasBeenInView] = useState(false);
   const ref = useRef<T>(null);
@@ -21,7 +23,7 @@ export const useInView = <T extends HTMLElement = HTMLDivElement>(options: UseIn
       ([entry]) => {
         const inView = entry.isIntersecting;
         setIsInView(inView);
-        
+
         if (inView && !hasBeenInView) {
           setHasBeenInView(true);
         }

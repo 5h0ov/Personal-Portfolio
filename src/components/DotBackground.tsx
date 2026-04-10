@@ -13,7 +13,7 @@ export function DotBackground({ children, className }: GridBackgroundProps) {
 
   useEffect(() => {
     // disable mouse tracking on mobile/tablet to save resources
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     if (window.matchMedia("(max-width: 768px)").matches) return;
 
@@ -22,10 +22,10 @@ export function DotBackground({ children, className }: GridBackgroundProps) {
       mouseY.set(e.clientY);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [mouseX, mouseY]);
 
@@ -33,13 +33,12 @@ export function DotBackground({ children, className }: GridBackgroundProps) {
 
   return (
     <div className={cn("relative overflow-hidden", className)}>
-
       <div
         className={cn(
           "absolute inset-0",
           "[background-size:60px_60px]",
           "[background-image:linear-gradient(to_right,rgba(0,0,0,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.08)_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)]",
+          "dark:[background-image:linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)]"
         )}
       />
 
@@ -56,31 +55,27 @@ export function DotBackground({ children, className }: GridBackgroundProps) {
             "absolute inset-0",
             "[background-size:60px_60px]",
             "[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.3)_1px,transparent_1px)]",
-            "dark:[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.25)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.25)_1px,transparent_1px)]",
+            "dark:[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.25)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.25)_1px,transparent_1px)]"
           )}
         />
       </motion.div>
 
       {/* static grid lines */}
-      <div
-        className="absolute inset-0 opacity-[0.1]"
-      >
+      <div className="absolute inset-0 opacity-[0.1]">
         <div
           className={cn(
             "absolute inset-0",
             "[background-size:120px_120px]",
             "[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.15)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.15)_1px,transparent_1px)]",
-            "dark:[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.12)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.12)_1px,transparent_1px)]",
+            "dark:[background-image:linear-gradient(to_right,hsl(16_100%_57%_/_0.12)_1px,transparent_1px),linear-gradient(to_bottom,hsl(16_100%_57%_/_0.12)_1px,transparent_1px)]"
           )}
         />
       </div>
 
       {/* a gradient fade */}
       <div className="pointer-events-none absolute inset-0 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black opacity-50"></div>
-      
-      <div className="relative z-10">
-        {children}
-      </div>
+
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-'use client';
-import { motion } from 'motion/react';
-import { useMemo } from 'react';
-import { useInView } from '@/lib/hooks/useInView';
+"use client";
+import { motion } from "motion/react";
+import { useMemo } from "react";
+import { useInView } from "@/lib/hooks/useInView";
 
 const BackgroundAnimation = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
@@ -9,15 +9,18 @@ const BackgroundAnimation = () => {
   const gridLines = useMemo(() => {
     return Array.from({ length: 15 }, (_, i) => ({
       id: i,
-      x: (i*7) % 100, // increased spacing between lines
-      y: (i*7) % 100,
+      x: (i * 7) % 100, // increased spacing between lines
+      y: (i * 7) % 100,
       delay: Math.random() * 3,
     }));
   }, []);
 
   // this will get overlayed on the dot background
   return (
-    <div ref={ref} className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div
+      ref={ref}
+      className="fixed inset-0 pointer-events-none overflow-hidden"
+    >
       <div className="absolute inset-0">
         {/* vertical lines */}
         {gridLines.map((line) => (
@@ -27,13 +30,17 @@ const BackgroundAnimation = () => {
             style={{
               left: `${line.x}%`,
             }}
-            animate={isInView ? {
-              opacity: [0.1, 0.4, 0.1],
-              scaleY: [0.7, 1, 0.7],
-            } : {
-              opacity: 0.1,
-              scaleY: 0.7,
-            }}
+            animate={
+              isInView
+                ? {
+                    opacity: [0.1, 0.4, 0.1],
+                    scaleY: [0.7, 1, 0.7],
+                  }
+                : {
+                    opacity: 0.1,
+                    scaleY: 0.7,
+                  }
+            }
             transition={{
               duration: 6,
               repeat: isInView ? Infinity : 0,
@@ -42,7 +49,7 @@ const BackgroundAnimation = () => {
             }}
           />
         ))}
-        
+
         {/* horizontal lines */}
         {gridLines.map((line) => (
           <motion.div
@@ -51,13 +58,17 @@ const BackgroundAnimation = () => {
             style={{
               top: `${line.y}%`,
             }}
-            animate={isInView ? {
-              opacity: [0.1, 0.4, 0.1],
-              scaleX: [0.7, 1, 0.7],
-            } : {
-              opacity: 0.1,
-              scaleX: 0.7,
-            }}
+            animate={
+              isInView
+                ? {
+                    opacity: [0.1, 0.4, 0.1],
+                    scaleX: [0.7, 1, 0.7],
+                  }
+                : {
+                    opacity: 0.1,
+                    scaleX: 0.7,
+                  }
+            }
             transition={{
               duration: 6,
               repeat: isInView ? Infinity : 0,
@@ -74,18 +85,22 @@ const BackgroundAnimation = () => {
           key={`dot-${i}`}
           className="absolute w-2 h-2 bg-accent/30 rounded-full"
           style={{
-            left: `${15 + (i * 12)}%`,
-            top: `${25 + (i * 8)}%`,
+            left: `${15 + i * 12}%`,
+            top: `${25 + i * 8}%`,
           }}
-          animate={isInView ? {
-            y: [0, -40, 0],
-            opacity: [0, 0.7, 0],
-            scale: [0, 1.2, 0],
-          } : {
-            y: 0,
-            opacity: 0,
-            scale: 0,
-          }}
+          animate={
+            isInView
+              ? {
+                  y: [0, -40, 0],
+                  opacity: [0, 0.7, 0],
+                  scale: [0, 1.2, 0],
+                }
+              : {
+                  y: 0,
+                  opacity: 0,
+                  scale: 0,
+                }
+          }
           transition={{
             duration: 8,
             repeat: isInView ? Infinity : 0,
@@ -98,12 +113,16 @@ const BackgroundAnimation = () => {
       {/* some geometric shapes */}
       <motion.div
         className="absolute top-1/4 right-1/4 w-12 h-12 border border-accent/20"
-        style={{ clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)' }}
-        animate={isInView ? {
-          rotate: [0, 360],
-        } : {
-          rotate: 0,
-        }}
+        style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+        animate={
+          isInView
+            ? {
+                rotate: [0, 360],
+              }
+            : {
+                rotate: 0,
+              }
+        }
         transition={{
           duration: 15,
           repeat: isInView ? Infinity : 0,
@@ -113,11 +132,15 @@ const BackgroundAnimation = () => {
 
       <motion.div
         className="absolute bottom-1/4 left-1/4 w-10 h-10 border border-muted-foreground/20 rounded-full"
-        animate={isInView ? {
-          scale: [1, 1.3, 1],
-        } : {
-          scale: 1,
-        }}
+        animate={
+          isInView
+            ? {
+                scale: [1, 1.3, 1],
+              }
+            : {
+                scale: 1,
+              }
+        }
         transition={{
           duration: 10,
           repeat: isInView ? Infinity : 0,
@@ -127,14 +150,21 @@ const BackgroundAnimation = () => {
 
       <motion.div
         className="absolute top-1/2 left-1/3 w-8 h-8 border border-accent/15"
-        style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}
-        animate={isInView ? {
-          rotate: [0, -360],
-          y: [0, -20, 0],
-        } : {
-          rotate: 0,
-          y: 0,
+        style={{
+          clipPath:
+            "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
         }}
+        animate={
+          isInView
+            ? {
+                rotate: [0, -360],
+                y: [0, -20, 0],
+              }
+            : {
+                rotate: 0,
+                y: 0,
+              }
+        }
         transition={{
           duration: 18,
           repeat: isInView ? Infinity : 0,
@@ -144,14 +174,20 @@ const BackgroundAnimation = () => {
 
       <motion.div
         className="absolute top-1/3 right-1/3 w-6 h-6 border border-muted-foreground/15"
-        style={{ clipPath: 'polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)' }}
-        animate={isInView ? {
-          rotate: [0, 360],
-          scale: [1, 1.2, 1],
-        } : {
-          rotate: 0,
-          scale: 1,
+        style={{
+          clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
         }}
+        animate={
+          isInView
+            ? {
+                rotate: [0, 360],
+                scale: [1, 1.2, 1],
+              }
+            : {
+                rotate: 0,
+                scale: 1,
+              }
+        }
         transition={{
           duration: 12,
           repeat: isInView ? Infinity : 0,

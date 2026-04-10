@@ -19,6 +19,6 @@ export interface Experience {
 export interface SocialLink {
   label: string;
   href: string;
-  icon: 'Github' | 'Twitter' | 'Linkedin' | 'Instagram';
+  icon: "Github" | "Twitter" | "Linkedin" | "Instagram";
   shownInPill: boolean;
-} 
+}

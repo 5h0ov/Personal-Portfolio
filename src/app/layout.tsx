@@ -3,30 +3,49 @@ import { Inter, Space_Grotesk } from "next/font/google"; // Changed from Syne to
 import Script from "next/script";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
-import { ThemeProvider } from '@/lib/providers/theme-provider';
-import { GlobalScrollbarProvider } from '@/lib/providers/global-scrollbar-provider';
+import { ThemeProvider } from "@/lib/providers/theme-provider";
+import { GlobalScrollbarProvider } from "@/lib/providers/global-scrollbar-provider";
 import { env } from "process";
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: '--font-heading' });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 
 export const metadata: Metadata = {
   title: "Shuvadipta Das | Portfolio",
-  description: "A modern portfolio built with Next.js, TypeScript, and Framer Motion. My Name is Shuvadipta Das, I am a Full Stack Developer. Great things are about to happen!",
-  keywords: ["Shuvadipta Das", "Portfolio", "Full Stack Developer", "Next.js", "TypeScript", "Framer Motion", "Shuvadipta", "Portfolio", "Full Stack", "Developer", "Next", "TypeScript", "Motion"],
+  description:
+    "A modern portfolio built with Next.js, TypeScript, and Framer Motion. My Name is Shuvadipta Das, I am a Full Stack Developer. Great things are about to happen!",
+  keywords: [
+    "Shuvadipta Das",
+    "Portfolio",
+    "Full Stack Developer",
+    "Next.js",
+    "TypeScript",
+    "Framer Motion",
+    "Shuvadipta",
+    "Portfolio",
+    "Full Stack",
+    "Developer",
+    "Next",
+    "TypeScript",
+    "Motion",
+  ],
   icons: {
     icon: "/favicon.ico",
   },
   alternates: {
-    canonical: './',
+    canonical: "./",
   },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
-    siteName: 'Shuvadipta Das | Portfolio',
-    title: 'Shuvadipta Das | Portfolio',
-    description: 'A modern portfolio built with Next.js, TypeScript, and Framer Motion. My Name is Shuvadipta Das, I am a Full Stack Developer. Great things are about to happen!',
+    type: "website",
+    locale: "en_US",
+    url: env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    siteName: "Shuvadipta Das | Portfolio",
+    title: "Shuvadipta Das | Portfolio",
+    description:
+      "A modern portfolio built with Next.js, TypeScript, and Framer Motion. My Name is Shuvadipta Das, I am a Full Stack Developer. Great things are about to happen!",
     // images: [
     //   {
     //     url: '/images/og-image.webp',
@@ -45,7 +64,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}
+    >
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"

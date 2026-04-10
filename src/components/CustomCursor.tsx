@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { motion } from 'motion/react';
+import { useState, useEffect, useCallback } from "react";
+import { motion } from "motion/react";
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState('default');
+  const [cursorVariant, setCursorVariant] = useState("default");
   const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // throttle mouse move events to reduce GPU usage
@@ -27,7 +27,9 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
     };
     checkTouchDevice();
 
@@ -38,30 +40,34 @@ const CustomCursor = () => {
 
       // check for interactive elements
       //  TODO: add more
-      if (target.tagName === 'BUTTON' ||
-        target.tagName === 'A' ||
+      if (
+        target.tagName === "BUTTON" ||
+        target.tagName === "A" ||
         target.onclick ||
-        target.closest('button') ||
-        target.closest('a') ||
+        target.closest("button") ||
+        target.closest("a") ||
         target.closest('[role="button"]') ||
-        target.style.cursor === 'pointer' ||
-        target.classList.contains('cursor-pointer')) {
-        setCursorVariant('pointer');
-      } else if (target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA' ||
-        target.contentEditable === 'true') {
-        setCursorVariant('text');
+        target.style.cursor === "pointer" ||
+        target.classList.contains("cursor-pointer")
+      ) {
+        setCursorVariant("pointer");
+      } else if (
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
+        target.contentEditable === "true"
+      ) {
+        setCursorVariant("text");
       } else {
-        setCursorVariant('default');
+        setCursorVariant("default");
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
     };
   }, [throttledMouseMove]);
 
@@ -72,7 +78,7 @@ const CustomCursor = () => {
       height: 32,
       width: 32,
       scale: 1,
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     },
     pointer: {
       x: mousePosition.x - 20,
@@ -80,7 +86,7 @@ const CustomCursor = () => {
       height: 40,
       width: 40,
       scale: 1.5,
-      backgroundColor: 'hsl(var(--accent))',
+      backgroundColor: "hsl(var(--accent))",
     },
     text: {
       x: mousePosition.x - 8,
@@ -88,7 +94,7 @@ const CustomCursor = () => {
       height: 16,
       width: 16,
       scale: 0.5,
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     },
   };
 
@@ -97,12 +103,12 @@ const CustomCursor = () => {
   }
 
   return (
-    <motion.div 
+    <motion.div
       className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border-2 border-accent mix-blend-difference"
-      variants={variants} 
+      variants={variants}
       animate={cursorVariant}
     />
   );
 };
 
-export default CustomCursor; 
+export default CustomCursor;

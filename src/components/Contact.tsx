@@ -1,12 +1,12 @@
-'use client';
-import { motion } from 'motion/react';
-import { useState } from 'react';
-import Button from './ui/Button';
-import { Mail, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
-import { useInView } from '@/lib/hooks/useInView';
-import socialLinks from '@/lib/data/social-links.json';
-import type { SocialLink } from '@/lib/types';
-import { Card, CardContent, CardTitle } from '@/components/ui/Card';
+"use client";
+import { motion } from "motion/react";
+import { useState } from "react";
+import Button from "./ui/Button";
+import { Mail, Linkedin, Github, Twitter, Instagram } from "lucide-react";
+import { useInView } from "@/lib/hooks/useInView";
+import socialLinks from "@/lib/data/social-links.json";
+import type { SocialLink } from "@/lib/types";
+import { Card, CardContent, CardTitle } from "@/components/ui/Card";
 
 const iconMap = {
   Github,
@@ -17,19 +17,21 @@ const iconMap = {
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    Name: '',
-    Email: '',
-    Message: ''
+    Name: "",
+    Email: "",
+    Message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -37,36 +39,36 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setMessage('');
+    setMessage("");
 
     try {
       const scriptURL = process.env.NEXT_PUBLIC_SHEETS_MACRO_URL;
 
       const formDataToSend = new FormData();
-      formDataToSend.append('Name', formData.Name);
-      formDataToSend.append('Email', formData.Email);
-      formDataToSend.append('Message', formData.Message);
-      formDataToSend.append('Date', new Date().toLocaleString());
+      formDataToSend.append("Name", formData.Name);
+      formDataToSend.append("Email", formData.Email);
+      formDataToSend.append("Message", formData.Message);
+      formDataToSend.append("Date", new Date().toLocaleString());
 
       const response = await fetch(scriptURL!, {
-        method: 'POST',
-        body: formDataToSend
+        method: "POST",
+        body: formDataToSend,
       });
 
       if (response.ok) {
-        setMessage('Message Sent Successfully!');
-        setFormData({ Name: '', Email: '', Message: '' });
+        setMessage("Message Sent Successfully!");
+        setFormData({ Name: "", Email: "", Message: "" });
         setTimeout(() => {
-          setMessage('');
+          setMessage("");
         }, 4000);
       } else {
-        throw new Error('Failed to send message');
+        throw new Error("Failed to send message");
       }
     } catch (error) {
-      console.error('Error!', error);
-      setMessage('Failed to send message. Please try again.');
+      console.error("Error!", error);
+      setMessage("Failed to send message. Please try again.");
       setTimeout(() => {
-        setMessage('');
+        setMessage("");
       }, 4000);
     } finally {
       setIsSubmitting(false);
@@ -75,7 +77,9 @@ const Contact = () => {
   return (
     <section ref={ref} id="contact" className="py-24">
       <div className="container mx-auto px-6">
-        <h2 className="mb-16 text-center text-4xl font-bold text-foreground">Contact Me</h2>
+        <h2 className="mb-16 text-center text-4xl font-bold text-foreground">
+          Contact Me
+        </h2>
         <Card className="mx-auto max-w-6xl bg-card/10 backdrop-blur-sm border-border/20 md:grid md:grid-cols-2 md:gap-16 p-0">
           <CardContent className="p-8">
             <motion.div
@@ -83,11 +87,18 @@ const Contact = () => {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <CardTitle className="mb-8 text-3xl font-bold text-card-foreground">Get in Touch</CardTitle>
+              <CardTitle className="mb-8 text-3xl font-bold text-card-foreground">
+                Get in Touch
+              </CardTitle>
               <div className="space-y-6">
-                <a href="mailto:shuvadiptadas8820@gmail.com" className="group cursor-none flex items-center gap-4">
+                <a
+                  href="mailto:shuvadiptadas8820@gmail.com"
+                  className="group cursor-none flex items-center gap-4"
+                >
                   <Mail className="h-8 w-8 text-accent transition-transform group-hover:scale-110" />
-                  <span className="text-lg text-muted-foreground transition-colors group-hover:text-foreground">shuvadiptadas8820@gmail.com</span>
+                  <span className="text-lg text-muted-foreground transition-colors group-hover:text-foreground">
+                    shuvadiptadas8820@gmail.com
+                  </span>
                 </a>
               </div>
               <div className="mt-10 flex space-x-6">
@@ -96,7 +107,7 @@ const Contact = () => {
                   return (
                     <button
                       key={index}
-                      onClick={() => window.open(link.href, '_blank')}
+                      onClick={() => window.open(link.href, "_blank")}
                       className="cursor-none text-muted-foreground transition-colors hover:text-accent"
                       aria-label={link.label}
                     >
@@ -110,7 +121,7 @@ const Contact = () => {
                   className="rounded-full"
                   onClick={() => {
                     const cvUrl = process.env.NEXT_PUBLIC_CV_URL;
-                    window.open(cvUrl, '_blank');
+                    window.open(cvUrl, "_blank");
                   }}
                 >
                   View Resume
@@ -123,7 +134,11 @@ const Contact = () => {
             <motion.form
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.6, delay: isInView ? 0.1 : 0, ease: "easeOut" }}
+              transition={{
+                duration: 0.6,
+                delay: isInView ? 0.1 : 0,
+                ease: "easeOut",
+              }}
               className="mt-12 md:mt-0"
               onSubmit={handleSubmit}
             >
@@ -162,14 +177,17 @@ const Contact = () => {
                   type="submit"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Submit'}
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </div>
               {message && (
-                <div className={`mt-4 text-center text-sm font-medium ${message.includes('Successfully')
-                  ? 'text-green-600 dark:text-green-400'
-                  : 'text-red-600 dark:text-red-400'
-                  }`}>
+                <div
+                  className={`mt-4 text-center text-sm font-medium ${
+                    message.includes("Successfully")
+                      ? "text-green-600 dark:text-green-400"
+                      : "text-red-600 dark:text-red-400"
+                  }`}
+                >
                   {message}
                 </div>
               )}
@@ -181,4 +199,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

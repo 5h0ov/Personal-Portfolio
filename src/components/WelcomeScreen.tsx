@@ -1,24 +1,23 @@
-'use client';
-import { motion } from 'motion/react';
+"use client";
+import { motion } from "motion/react";
 
 export const WelcomeScreen = () => {
   return (
     <div className="fixed inset-0 z-50 bg-background flex items-center justify-center">
-
       {/* simple gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-accent/10" />
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: 1, 
+        animate={{
+          opacity: 1,
           y: 0,
-          transition: { duration: 0.8, ease: "easeOut" }
+          transition: { duration: 0.8, ease: "easeOut" },
         }}
-        exit={{ 
-          opacity: 0, 
+        exit={{
+          opacity: 0,
           y: -20,
-          transition: { duration: 0.5, ease: "easeInOut" }
+          transition: { duration: 0.5, ease: "easeInOut" },
         }}
         className="relative z-10 text-center"
       >
@@ -41,4 +40,4 @@ export const WelcomeScreen = () => {
       </motion.div>
     </div>
   );
-}; 
+};

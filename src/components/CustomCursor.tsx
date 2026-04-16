@@ -104,7 +104,7 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border-2 border-accent mix-blend-difference"
+      className="custom-cursor pointer-events-none fixed left-0 top-0 z-[999999] rounded-full border-2 border-accent mix-blend-difference"
       variants={variants}
       animate={cursorVariant}
     />

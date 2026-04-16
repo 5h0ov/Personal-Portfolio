@@ -1,6 +1,28 @@
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://shoob.me";
+const isProduction = process.env.NODE_ENV === "production";
+
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-  generateIndexSitemap: true,
-  generateRobotsTxt: true, // (optional)
-  // ...other options
+  siteUrl,
+  generateRobotsTxt: true,
+  transform: (config, path) => ({
+    loc: path,
+    changefreq: "monthly",
+    priority: path === "/" ? 1.0 : 0.8,
+    lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+  }),
+  robotsTxtOptions: {
+    policies: isProduction
+      ? [
+          {
+            userAgent: "*",
+            allow: "/",
+          },
+        ]
+      : [
+          {
+            userAgent: "*",
+            disallow: ["/"],
+          },
+        ],
+  },
 };

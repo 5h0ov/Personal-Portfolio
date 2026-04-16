@@ -78,7 +78,7 @@
   /* ensure custom cursor is always on top */
   .custom-cursor {
     pointer-events: none !important;
-    z-index: 9999 !important;
+    z-index: 999999 !important;
   }
 
   * {
@@ -124,9 +124,23 @@ body {
 }
 
 .custom-cursor {
-  @apply pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border-2 border-accent mix-blend-difference;
+  @apply pointer-events-none fixed left-0 top-0 z-[999999] rounded-full border-2 border-accent mix-blend-difference;
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
 }

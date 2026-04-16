@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { toast } from "sonner";
 import Button from "./ui/Button";
 import { Mail, Linkedin, Github, Twitter, Instagram } from "lucide-react";
 import { useInView } from "@/lib/hooks/useInView";
@@ -22,7 +23,6 @@ const Contact = () => {
     Message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const handleInputChange = (
@@ -35,11 +35,9 @@ const Contact = () => {
     }));
   };
 
-  // yes this actually works, hit me up with a nice message
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setMessage("");
 
     try {
       const scriptURL = process.env.NEXT_PUBLIC_SHEETS_MACRO_URL;
@@ -56,31 +54,30 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        setMessage("Message Sent Successfully!");
+        toast.success("Message sent successfully!", {
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
         setFormData({ Name: "", Email: "", Message: "" });
-        setTimeout(() => {
-          setMessage("");
-        }, 4000);
       } else {
         throw new Error("Failed to send message");
       }
     } catch (error) {
       console.error("Error!", error);
-      setMessage("Failed to send message. Please try again.");
-      setTimeout(() => {
-        setMessage("");
-      }, 4000);
+      toast.error("Failed to send message", {
+        description: "Please try again or email me directly.",
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
+
   return (
     <section ref={ref} id="contact" className="py-24">
       <div className="container mx-auto px-6">
         <h2 className="mb-16 text-center text-4xl font-bold text-foreground">
           Contact Me
         </h2>
-        <Card className="mx-auto max-w-6xl bg-card/10 backdrop-blur-sm border-border/20 md:grid md:grid-cols-2 md:gap-16 p-0">
+        <Card className="mx-auto max-w-6xl border-border/20 bg-card/10 p-0 backdrop-blur-sm md:grid md:grid-cols-2 md:gap-16">
           <CardContent className="p-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -93,7 +90,7 @@ const Contact = () => {
               <div className="space-y-6">
                 <a
                   href="mailto:shuvadiptadas8820@gmail.com"
-                  className="group cursor-none flex items-center gap-4"
+                  className="group flex cursor-none items-center gap-4"
                 >
                   <Mail className="h-8 w-8 text-accent transition-transform group-hover:scale-110" />
                   <span className="text-lg text-muted-foreground transition-colors group-hover:text-foreground">
@@ -107,6 +104,7 @@ const Contact = () => {
                   return (
                     <button
                       key={index}
+                      type="button"
                       onClick={() => window.open(link.href, "_blank")}
                       className="cursor-none text-muted-foreground transition-colors hover:text-accent"
                       aria-label={link.label}
@@ -149,7 +147,7 @@ const Contact = () => {
                   placeholder="Your Name"
                   value={formData.Name}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-0"
+                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-all focus:border-accent focus:outline-none focus:ring-0 focus:shadow-[0_0_0_1px_hsl(var(--accent))]"
                   required
                 />
                 <input
@@ -158,7 +156,7 @@ const Contact = () => {
                   placeholder="Your Email"
                   value={formData.Email}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-0"
+                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-all focus:border-accent focus:outline-none focus:ring-0 focus:shadow-[0_0_0_1px_hsl(var(--accent))]"
                   required
                 />
                 <textarea
@@ -167,30 +165,19 @@ const Contact = () => {
                   rows={5}
                   value={formData.Message}
                   onChange={handleInputChange}
-                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-colors focus:border-accent focus:outline-none focus:ring-0"
+                  className="w-full rounded-md border-2 border-border bg-background p-4 text-foreground placeholder-muted-foreground transition-all focus:border-accent focus:outline-none focus:ring-0 focus:shadow-[0_0_0_1px_hsl(var(--accent))]"
                   required
                 />
               </div>
               <div className="mt-6">
                 <Button
-                  className="rounded-full w-full"
+                  className="w-full rounded-full"
                   type="submit"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </div>
-              {message && (
-                <div
-                  className={`mt-4 text-center text-sm font-medium ${
-                    message.includes("Successfully")
-                      ? "text-green-600 dark:text-green-400"
-                      : "text-red-600 dark:text-red-400"
-                  }`}
-                >
-                  {message}
-                </div>
-              )}
             </motion.form>
           </CardContent>
         </Card>

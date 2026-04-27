@@ -15,7 +15,7 @@ const lines = [
     delay: 150,
   },
   { command: true, text: "cat status.txt", delay: 500 },
-  { command: false, text: "Open to Work ?", delay: 200 },
+  { command: false, text: "Open to Work: Yes", delay: 200 },
   { command: true, text: "./launch-portfolio.sh", delay: 600 },
   { command: false, text: "Loading portfolio...", delay: 300 },
 ];

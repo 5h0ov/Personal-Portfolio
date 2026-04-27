@@ -11,7 +11,7 @@ const lines = [
   { command: true, text: "ls ./skills", delay: 500 },
   {
     command: false,
-    text: "Next.js  TypeScript  React  Node.js  Tailwind",
+    text: "Next.js  TypeScript  React  Node.js  DevOps  +More!",
     delay: 150,
   },
   { command: true, text: "cat status.txt", delay: 500 },
